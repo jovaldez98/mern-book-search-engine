@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import {
   Container,
   Card,
@@ -18,7 +17,7 @@ const SavedBooks = () => {
 
   const userData = data?.me || []
 
-  const [deleteBook, { error }] = useMutation(DELETE_BOOK);
+  const [removeBook, {error}] = useMutation(DELETE_BOOK);
 
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
@@ -30,7 +29,7 @@ const SavedBooks = () => {
     }
 
     try {
-      const { data } = await deleteBook({
+      const { data } = await removeBook({
         variables: { bookId }
       })
 
